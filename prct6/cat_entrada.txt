@@ -1,0 +1,17 @@
+total 120
+drwxrwxr-x 2 fso  fso   4096 dic  9 12:43 .
+drwxrwxrwx 6 root root  4096 dic  9 09:47 ..
+-rwxrwxr-x 1 fso  fso  16128 dic  9 09:51 descriptor
+-rw-rw-r-- 1 fso  fso    521 dic  9 09:51 descriptor.c
+-rwxrwxr-x 1 fso  fso  16040 dic  9 09:48 descriptor_out
+-rw-rw-r-- 1 fso  fso    757 dic  9 09:48 descriptor_out.c
+-rwxr-xr-x 1 root root 16336 dic  9 12:43 ls_redir
+-rw-rw-r-- 1 fso  fso    615 dic  9 12:42 ls_redir.c
+-rwxr--r-- 1 root root     0 dic  9 12:43 ls_salida.txt
+-rwx------ 1 fso  fso     47 dic  9 10:00 messages.txt
+-rw-rw-r-- 1 fso  fso     21 dic  9 09:53 nigger.txt
+-rwx------ 1 fso  fso     23 dic  9 11:01 output.txt
+-rwxrwxr-x 1 fso  fso  16296 dic  9 11:01 redir_output
+-rw-rw-r-- 1 fso  fso    528 dic  9 11:00 redir_output.c
+-rwxrwxr-x 1 fso  fso  16208 dic  9 10:00 share_file
+-rw-rw-r-- 1 fso  fso    600 dic  9 09:58 share_file.c

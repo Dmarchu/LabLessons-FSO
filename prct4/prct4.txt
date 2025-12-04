@@ -1,0 +1,684 @@
+fso@fso-virtualbox:~$ ls
+Descargas  Documentos  Escritorio  Imágenes  Música  Plantillas  Público  snap  Vídeos
+fso@fso-virtualbox:~$ cd Escritorio
+fso@fso-virtualbox:~/Escritorio$ ls
+FSO  org.kde.konsole.desktop
+fso@fso-virtualbox:~/Escritorio$ cd FOS
+bash: cd: FOS: No existe el archivo o el directorio
+fso@fso-virtualbox:~/Escritorio$ cd FSO
+fso@fso-virtualbox:~/Escritorio/FSO$ ls
+array  array.c  factorial  factorial.c  files  files.c  fork1  fork1.c  Mathematica  Mathematica.c  pointers  pointers.c  poligon  poligon.c
+fso@fso-virtualbox:~/Escritorio/FSO$ mkdir prct4
+fso@fso-virtualbox:~/Escritorio/FSO$ ls
+array  array.c  factorial  factorial.c  files  files.c  fork1  fork1.c  Mathematica  Mathematica.c  pointers  pointers.c  poligon  poligon.c  prct4
+fso@fso-virtualbox:~/Escritorio/FSO$ cd prct4
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ls
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ kate ej1.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ kate mychild.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ls
+ej1.c  mychild.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc mychild -o mychild.c
+/usr/bin/ld: no se puede encontrar mychild: No existe el archivo o el directorio
+collect2: error: ld returned 1 exit status
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ls
+ej1.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ kate mychild.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc mychild.c -o mychild
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./mychild
+I'm the father process 2870 (PID), 1796 (PPID)
+I'm the child process 2871 (PID), 2870 (PPID)
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc mychild.c -o mychild
+mychild.c: In function ‘main’:
+mychild.c:7:9: error: ‘pid’ undeclared (first use in this function)
+    7 |     if (pid == 0) {
+      |         ^~~
+mychild.c:7:9: note: each undeclared identifier is reported only once for each function it appears in
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ kate mychild.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc mychild.c -o mychild
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./mychild
+I'm the father process 2895 (PID), 1796 (PPID)
+I'm the child process 2896 (PID), 2895 (PPID)
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./mychild&
+[1] 2899
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ I'm the father process 2899 (PID), 1796 (PPID)
+I'm the child process 2900 (PID), 2899 (PPID)
+ps -la
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 R  1000    2901    1796 99  80   0 -  4099 -      pts/1    00:00:00 ps
+[1]+  Hecho                   ./mychild
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ps
+    PID TTY          TIME CMD
+   1796 pts/1    00:00:00 bash
+   2921 pts/1    00:00:00 ps
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./mychild&
+[1] 2922
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ I'm the father process 2922 (PID), 1796 (PPID)
+I'm the child process 2923 (PID), 2922 (PPID)
+ps
+    PID TTY          TIME CMD
+   1796 pts/1    00:00:00 bash
+   2924 pts/1    00:00:00 ps
+[1]+  Hecho                   ./mychild
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ kate rangep.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep.c -o rangep
+rangep.c: In function ‘main’:
+rangep.c:7:16: error: called object ‘fork’ is not a function or function pointer
+    7 |         fork = fork();
+      |                ^~~~
+rangep.c:5:9: note: declared here
+    5 |     int fork;
+      |         ^~~~
+rangep.c:8:20: error: expected ‘;’ before ‘if’
+    8 |         printf("A")
+      |                    ^
+      |                    ;
+    9 |         if (fork == 0) {
+      |         ~~          
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep.c -o rangep
+rangep.c: In function ‘main’:
+rangep.c:8:26: error: expected ‘;’ before ‘if’
+    8 |         printf("%d", pid)
+      |                          ^
+      |                          ;
+    9 |         if (pid == 0) {
+      |         ~~                
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep.c -o rangep
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep
+011025110261102711028110291102511026110270110251102611027110280110250fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 11025110260gcc rangep.c -o rangep
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep
+11036
+11037
+0
+0
+11038
+11039
+0
+11040
+0
+0
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep.c -o rangep
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep
+PADRE 11056
+HIJO 0
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep.c -o rangep
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep
+PADRE 11063
+PADRE 11064
+PADRE 11065
+HIJO 0
+PADRE 11066
+PADRE 11067
+HIJO 0
+HIJO 0
+HIJO 0
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ HIJO 0
+gcc rangep.c -o rangep
+rangep.c: In function ‘main’:
+rangep.c:12:34: warning: implicit declaration of function ‘pidgetppid’; did you mean ‘getppid’? [-Wimplicit-function-declaration]
+   12 |             printf("PADRE %d\n", pidgetppid());
+      |                                  ^~~~~~~~~~
+      |                                  getppid
+/usr/bin/ld: /tmp/ccwrssIA.o: en la función `main':
+rangep.c:(.text+0x4d): undefined reference to `pidgetppid'
+collect2: error: ld returned 1 exit status
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep.c -o rangep
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep
+PADRE 1796
+PADRE 1796
+HIJO 11081
+PADRE 1796
+PADRE 1796
+HIJO 11082
+HIJO 11084
+HIJO 11085
+HIJO 11083
+PADRE 1796
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep.c -o rangep
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep
+Soy 11094, hijo de 11093
+Soy 11095, hijo de 11093
+Soy 11098, hijo de 11093
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ Soy 11097, hijo de 11093
+Soy 11096, hijo de 11093
+./rangep
+Soy 11100, hijo de 11099
+Soy 11103, hijo de 11099
+Soy 11101, hijo de 1104
+Soy 11104, hijo de 1104
+Soy 11102, hijo de 1104
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep
+Soy 11109, hijo de 11108
+Soy 11110, hijo de 1104
+Soy 11112, hijo de 1104
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ Soy 11113, hijo de 1104
+Soy 11111, hijo de 1104
+
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep
+Soy 11115, hijo de 11114
+Soy 11118, hijo de 11114
+Soy 11116, hijo de 1104
+Soy 11119, hijo de 1104
+Soy 11117, hijo de 1104
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep.c -o rangep
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep
+Soy 0, hijo de 11127
+Soy 0, hijo de 1104
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ Soy 0, hijo de 11127
+Soy 0, hijo de 1104
+Soy 0, hijo de 1104
+./rangep
+Soy 0, hijo de 11133
+Soy 0, hijo de 11133
+Soy 0, hijo de 1104
+Soy 0, hijo de 1104
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ Soy 0, hijo de 1104
+
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep
+Soy 0, hijo de 11139
+Soy 0, hijo de 1104
+Soy 0, hijo de 1104
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ Soy 0, hijo de 11139
+Soy 0, hijo de 1104
+gcc rangep.c -o rangep
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep
+Soy PAPI 1796
+Soy PAPI 1796
+Soy 11155, hijo de 11154
+Soy 11156, hijo de 11154
+Soy 11157, hijo de 11154
+Soy PAPI 1796
+Soy PAPI 1796
+Soy 11158, hijo de 11154
+Soy PAPI 1796
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ Soy 11159, hijo de 11154
+gcc rangep.c -o rangep
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep
+Soy PAPI 11167
+Soy PAPI 11167
+Soy PAPI 11167
+Soy PAPI 11167
+Soy 11168, hijo de 11167
+Soy PAPI 11167
+Soy 11169, hijo de 1104
+Soy 11170, hijo de 1104
+Soy 11172, hijo de 1104
+Soy 11171, hijo de 1104
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ps
+    PID TTY          TIME CMD
+   1796 pts/1    00:00:00 bash
+  11173 pts/1    00:00:00 ps
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep.c -o rangep
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep
+Soy PAPI 11180, mi PPID es 1796
+Soy PAPI 11180, mi PPID es 1796
+Soy PAPI 11180, mi PPID es 1796
+Soy 11182, mi PPID es 11180
+Soy 11183, mi PPID es 11180
+Soy 11181, mi PPID es 11180
+Soy PAPI 11180, mi PPID es 1796
+Soy PAPI 11180, mi PPID es 1796
+Soy 11184, mi PPID es 11180
+Soy 11185, mi PPID es 11180
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep
+Soy PAPI 11186, mi PPID es 1796
+Soy PAPI 11186, mi PPID es 1796
+Soy 11187, mi PPID es 11186
+Soy PAPI 11186, mi PPID es 1796
+Soy 11188, mi PPID es 11186
+Soy PAPI 11186, mi PPID es 1796
+Soy PAPI 11186, mi PPID es 1796
+Soy 11189, mi PPID es 11186
+Soy 11191, mi PPID es 11186
+Soy 11190, mi PPID es 11186
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ cowsay guuuuud
+ _________
+< guuuuud >
+ ---------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ kate adoptedp.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ cp rangep.c adoptedp.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ kate adoptedp.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep2.c -o rangep2
+rangep2.c: In function ‘main’:
+rangep2.c:10:13: warning: implicit declaration of function ‘exit’ [-Wimplicit-function-declaration]
+   10 |             exit(i);
+      |             ^~~~
+rangep2.c:3:1: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+    2 | #include<unistd.h>
+  +++ |+#include <stdlib.h>
+    3 | 
+rangep2.c:10:13: warning: incompatible implicit declaration of built-in function ‘exit’ [-Wbuiltin-declaration-mismatch]
+   10 |             exit(i);
+      |             ^~~~
+rangep2.c:10:13: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+rangep2.c:14:13: warning: incompatible implicit declaration of built-in function ‘exit’ [-Wbuiltin-declaration-mismatch]
+   14 |             exit(0);
+      |             ^~~~
+rangep2.c:14:13: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep2.c -o rangep2
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep2
+Soy PAPI 11302, creado en iteración 0, mi PPID es 1796
+Soy 11303, creado en iteración 0, mi PPID es 11302
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep2.c -o rangep2
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep2
+Soy PAPI 11318, creado en iteración 0, mi PPID es 1796
+Soy 11319, creado en iteración 0, mi PPID es 11318
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ kate rangedp2.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep2.c -o rangep2
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep2
+Soy 11353, creado en iteración 0, mi PPID es 1796
+Soy PAPI 11354, creado en iteración 0, mi PPID es 11353
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep2.c -o rangep2
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep2
+Soy PAPI 11360, creado en iteración 0, mi PPID es 1796
+Soy 11361, creado en iteración 0, mi PPID es 11360
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep2.c -o rangep2
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep2
+Soy 11373, creado en iteración 0, mi PPID es 11372
+Soy PAPI 11372, creado en iteración 4, mi PPID es 1796
+Soy 11376, creado en iteración 3, mi PPID es 11372
+Soy 11374, creado en iteración 1, mi PPID es 11372
+Soy 11377, creado en iteración 4, mi PPID es 11372
+Soy 11375, creado en iteración 2, mi PPID es 11372
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep2
+Soy 11379, creado en iteración 0, mi PPID es 11378
+Soy 11380, creado en iteración 1, mi PPID es 11378
+Soy 11381, creado en iteración 2, mi PPID es 11378
+Soy 11382, creado en iteración 3, mi PPID es 11378
+Soy 11383, creado en iteración 4, mi PPID es 11378
+Soy PAPI 11378, creado en iteración 4, mi PPID es 1796
+ps -la
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ps -la
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 R  1000   11384    1796 99  80   0 -  4099 -      pts/1    00:00:00 ps
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep2&
+[1] 11385
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ Soy 11386, creado en iteración 0, mi PPID es 11385
+Soy PAPI 11385, creado en iteración 4, mi PPID es 1796
+Soy 11387, creado en iteración 1, mi PPID es 11385
+Soy 11389, creado en iteración 3, mi PPID es 11385
+Soy 11388, creado en iteración 2, mi PPID es 11385
+Soy 11390, creado en iteración 4, mi PPID es 11385
+ps -la
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000   11385    1796  0  80   0 -   671 hrtime pts/1    00:00:00 rangep2
+1 Z  1000   11386   11385  0  80   0 -     0 -      pts/1    00:00:00 rangep2
+1 Z  1000   11387   11385  0  80   0 -     0 -      pts/1    00:00:00 rangep2
+1 Z  1000   11388   11385  0  80   0 -     0 -      pts/1    00:00:00 rangep2
+1 Z  1000   11389   11385  0  80   0 -     0 -      pts/1    00:00:00 rangep2
+1 Z  1000   11390   11385  0  80   0 -     0 -      pts/1    00:00:00 rangep2
+0 R  1000   11391    1796  0  80   0 -  4099 -      pts/1    00:00:00 ps
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ps -la
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 R  1000   11392    1796  0  80   0 -  4099 -      pts/1    00:00:00 ps
+[1]+  Hecho                   ./rangep2
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep2.c -o rangep2
+rangep2.c: In function ‘main’:
+rangep2.c:13:20: warning: too many arguments for format [-Wformat-extra-args]
+   13 |             printf("Soy PAPI %d, mi PPID es %d\n", getpid(), i, getppid());
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc rangep2.c -o rangep2
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./rangep2&
+[1] 11403
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ Soy 11404, creado en iteración 0, mi PPID es 11403
+Soy PAPI 11403, mi PPID es 1796
+Soy 11407, creado en iteración 3, mi PPID es 11403
+Soy 11405, creado en iteración 1, mi PPID es 11403
+Soy 11408, creado en iteración 4, mi PPID es 11403
+Soy 11406, creado en iteración 2, mi PPID es 11403
+ps -la
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000   11403    1796  0  80   0 -   671 hrtime pts/1    00:00:00 rangep2
+1 Z  1000   11404   11403  0  80   0 -     0 -      pts/1    00:00:00 rangep2
+1 Z  1000   11405   11403  0  80   0 -     0 -      pts/1    00:00:00 rangep2
+1 Z  1000   11406   11403  0  80   0 -     0 -      pts/1    00:00:00 rangep2
+1 Z  1000   11407   11403  0  80   0 -     0 -      pts/1    00:00:00 rangep2
+1 Z  1000   11408   11403  0  80   0 -     0 -      pts/1    00:00:00 rangep2
+0 R  1000   11409    1796  0  80   0 -  4099 -      pts/1    00:00:00 ps
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ cowsay ahora si que gud q estoy empanao
+ __________________________________
+< ahora si que gud q estoy empanao >
+ ----------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+[1]+  Hecho                   ./rangep2
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ cp rangep2.c adoptedp.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ kate adoptedp.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc adoptedp.c -o adoptedp
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./adoptedp&
+[1] 11442
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ Soy PAPI 11442, mi PPID es 1796
+Soy 11443, creado en iteración 0, mi PPID es 11442
+Soy 11444, creado en iteración 1, mi PPID es 11442
+Soy 11447, creado en iteración 4, mi PPID es 11442
+Soy 11446, creado en iteración 3, mi PPID es 11442
+Soy 11445, creado en iteración 2, mi PPID es 11442
+ps l
+F   UID     PID    PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+0  1000    1796    1754  20   0  14464  6016 do_wai Ss   pts/1      0:00 /bin/bash
+0  1000   11442    1796  20   0   2684  1536 hrtime S    pts/1      0:00 ./adoptedp
+1  1000   11443   11442  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+1  1000   11444   11442  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+1  1000   11445   11442  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+1  1000   11446   11442  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+1  1000   11447   11442  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+0  1000   11448    1796  20   0  16396  4480 -      R+   pts/1      0:00 ps l
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ps l
+F   UID     PID    PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+0  1000    1796    1754  20   0  14464  6016 do_wai Ss   pts/1      0:00 /bin/bash
+0  1000   11442    1796  20   0   2684  1536 hrtime S    pts/1      0:00 ./adoptedp
+1  1000   11443   11442  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+1  1000   11444   11442  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+1  1000   11445   11442  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+1  1000   11446   11442  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+1  1000   11447   11442  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+0  1000   11449    1796  20   0  16396  4480 -      R+   pts/1      0:00 ps l
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ps l
+F   UID     PID    PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+0  1000    1796    1754  20   0  14464  6016 do_wai Ss   pts/1      0:00 /bin/bash
+0  1000   11450    1796  20   0  16396  4480 -      R+   pts/1      0:00 ps l
+[1]+  Hecho                   ./adoptedp
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ps l
+F   UID     PID    PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+0  1000    1796    1754  20   0  14464  6016 do_wai Ss   pts/1      0:00 /bin/bash
+0  1000   11451    1796  20   0  16396  4480 -      R+   pts/1      0:00 ps l
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./adoptedp&
+[1] 11452
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ Soy 11453, creado en iteración 0, mi PPID es 11452
+Soy PAPI 11452, mi PPID es 1796
+Soy 11454, creado en iteración 1, mi PPID es 11452
+Soy 11456, creado en iteración 3, mi PPID es 11452
+Soy 11455, creado en iteración 2, mi PPID es 11452
+Soy 11457, creado en iteración 4, mi PPID es 11452
+ps l
+F   UID     PID    PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+0  1000    1796    1754  20   0  14464  6016 do_wai Ss   pts/1      0:00 /bin/bash
+0  1000   11452    1796  20   0   2684  1536 hrtime S    pts/1      0:00 ./adoptedp
+1  1000   11453   11452  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+1  1000   11454   11452  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+1  1000   11455   11452  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+1  1000   11456   11452  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+1  1000   11457   11452  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+0  1000   11458    1796  20   0  16396  4480 -      R+   pts/1      0:00 ps l
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ps l
+F   UID     PID    PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+0  1000    1796    1754  20   0  14464  6016 do_wai Ss   pts/1      0:00 /bin/bash
+0  1000   11452    1796  20   0   2684  1536 hrtime S    pts/1      0:00 ./adoptedp
+1  1000   11453   11452  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+1  1000   11454   11452  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+1  1000   11455   11452  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+1  1000   11456   11452  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+1  1000   11457   11452  20   0      0     0 -      Z    pts/1      0:00 [adoptedp] <defunct>
+0  1000   11459    1796  20   0  16396  4480 -      R+   pts/1      0:00 ps l
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ps l
+F   UID     PID    PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+0  1000    1796    1754  20   0  14464  6016 do_wai Ss   pts/1      0:00 /bin/bash
+0  1000   11460    1796  20   0  16396  4480 -      R+   pts/1      0:00 ps l
+[1]+  Hecho                   ./adoptedp
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ cowsay creo que bien porque estan zombies y el padre tabien
+ _________________________________________
+/ creo que bien porque estan zombies y el \
+\ padre tabien                            /
+ -----------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ cp rangep2.c parentw.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ kate parentw.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc parentw.c -o parentw
+parentw.c: In function ‘main’:
+parentw.c:14:13: warning: implicit declaration of function ‘wait’ [-Wimplicit-function-declaration]
+   14 |             wait();
+      |             ^~~~
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ kate parentw.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc parentw.c -o parentw
+parentw.c: In function ‘main’:
+parentw.c:14:13: warning: implicit declaration of function ‘wait’ [-Wimplicit-function-declaration]
+   14 |             wait(5);
+      |             ^~~~
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc parentw.c -o parentw
+parentw.c: In function ‘main’:
+parentw.c:15:13: error: too few arguments to function ‘wait’
+   15 |             wait();
+      |             ^~~~
+In file included from parentw.c:4:
+/usr/include/x86_64-linux-gnu/sys/wait.h:83:16: note: declared here
+   83 | extern __pid_t wait (int *__stat_loc);
+      |                ^~~~
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc parentw.c -o parentw
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./parentw&
+[1] 11558
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ Soy 11559, creado en iteración 0, mi PPID es 11558
+Soy 11560, creado en iteración 1, mi PPID es 11558
+Soy 11562, creado en iteración 3, mi PPID es 11558
+Soy 11561, creado en iteración 2, mi PPID es 11558
+Soy 11563, creado en iteración 4, mi PPID es 11558
+Soy PAPI 11558, mi PPID es 1796
+ps la
+F   UID     PID    PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+4     0    1025    1014  20   0 380224 132448 -     Ssl+ tty2       2:58 /usr/lib/xorg/Xorg -nolisten tcp -background none -seat seat0 vt2 -auth /run/sddm/x
+0  1000    1796    1754  20   0  14464  6016 do_wai Ss   pts/1      0:00 /bin/bash
+0  1000   11564    1796  20   0  16396  4480 -      R+   pts/1      0:00 ps la
+[1]+  Hecho                   ./parentw
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc parentw.c -o parentw
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./parentw&
+[1] 11570
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ Soy 11571, creado en iteración 0, mi PPID es 11570
+Soy PAPI 11570, mi PPID es 1796
+Soy 11574, creado en iteración 3, mi PPID es 11570
+Soy 11572, creado en iteración 1, mi PPID es 11570
+Soy 11575, creado en iteración 4, mi PPID es 11570
+Soy 11573, creado en iteración 2, mi PPID es 11570
+ps la
+F   UID     PID    PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+4     0    1025    1014  20   0 380224 132448 -     Ssl+ tty2       3:00 /usr/lib/xorg/Xorg -nolisten tcp -background none -seat seat0 vt2 -auth /run/sddm/x
+0  1000    1796    1754  20   0  14464  6016 do_wai Ss   pts/1      0:00 /bin/bash
+0  1000   11570    1796  20   0   2684  1536 do_wai S    pts/1      0:00 ./parentw
+1  1000   11571   11570  20   0   2684   896 hrtime S    pts/1      0:00 ./parentw
+1  1000   11572   11570  20   0   2684   896 hrtime S    pts/1      0:00 ./parentw
+1  1000   11573   11570  20   0   2684   896 hrtime S    pts/1      0:00 ./parentw
+1  1000   11574   11570  20   0   2684   896 hrtime S    pts/1      0:00 ./parentw
+1  1000   11575   11570  20   0   2684   896 hrtime S    pts/1      0:00 ./parentw
+0  1000   11576    1796  20   0  16396  4480 -      R+   pts/1      0:00 ps la
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ps la
+F   UID     PID    PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+4     0    1025    1014  20   0 380224 132448 -     Ssl+ tty2       3:00 /usr/lib/xorg/Xorg -nolisten tcp -background none -seat seat0 vt2 -auth /run/sddm/x
+0  1000    1796    1754  20   0  14464  6016 do_wai Ss   pts/1      0:00 /bin/bash
+0  1000   11570    1796  20   0   2684  1536 do_wai S    pts/1      0:00 ./parentw
+1  1000   11571   11570  20   0   2684   896 hrtime S    pts/1      0:00 ./parentw
+1  1000   11572   11570  20   0   2684   896 hrtime S    pts/1      0:00 ./parentw
+1  1000   11573   11570  20   0   2684   896 hrtime S    pts/1      0:00 ./parentw
+1  1000   11574   11570  20   0   2684   896 hrtime S    pts/1      0:00 ./parentw
+1  1000   11575   11570  20   0   2684   896 hrtime S    pts/1      0:00 ./parentw
+0  1000   11577    1796  20   0  16396  4480 -      R+   pts/1      0:00 ps la
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ps la
+F   UID     PID    PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+4     0    1025    1014  20   0 380224 132448 -     Ssl+ tty2       3:00 /usr/lib/xorg/Xorg -nolisten tcp -background none -seat seat0 vt2 -auth /run/sddm/x
+0  1000    1796    1754  20   0  14464  6016 do_wai Ss   pts/1      0:00 /bin/bash
+0  1000   11578    1796  20   0  16396  4480 -      R+   pts/1      0:00 ps la
+[1]+  Hecho                   ./parentw
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ cowsay ya no son zombies :)
+bash: error sintáctico cerca del elemento inesperado `)'
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ cowsay ya no son zombies porque les espera
+ _____________________________________
+< ya no son zombies porque les espera >
+ -------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ cp parentw.c finals.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ kate finals.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc finals.c -o finals
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./finals&
+[1] 11623
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ Soy hijo 0, con PID 11624, y PPID  11623
+ps -la
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000   11623    1796  0  80   0 -   638 do_wai pts/1    00:00:00 finals
+1 S  1000   11624   11623  0  80   0 -   671 hrtime pts/1    00:00:00 finals
+0 R  1000   11625    1796  0  80   0 -  4099 -      pts/1    00:00:00 ps
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ Soy PAPI 0, con PID 11623, PPID 1796 y status: 0
+Soy hijo 1, con PID 11626, y PPID  11623
+Soy PAPI 1, con PID 11623, PPID 1796 y status: 256
+Soy hijo 2, con PID 11627, y PPID  11623
+Soy PAPI 2, con PID 11623, PPID 1796 y status: 512
+Soy hijo 3, con PID 11628, y PPID  11623
+Soy PAPI 3, con PID 11623, PPID 1796 y status: 768
+ps -la
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 R  1000   11629    1796  0  80   0 -  4099 -      pts/1    00:00:00 ps
+[1]+  Hecho                   ./finals
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ cowsay nose si ta bien
+ _________________
+< nose si ta bien >
+ -----------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc finals.c -o finals
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./finals&
+[1] 11643
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ Soy hijo 0, con PID 11644, y PPID  11643
+ps -la
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000   11643    1796  0  80   0 -   638 do_wai pts/1    00:00:00 finals
+1 S  1000   11644   11643  0  80   0 -   671 hrtime pts/1    00:00:00 finals
+0 R  1000   11645    1796  0  80   0 -  4099 -      pts/1    00:00:00 ps
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ Soy PAPI 0, con PID 11643, PPID 1796 y status: 0
+Soy hijo 1, con PID 11646, y PPID  11643
+Soy PAPI 1, con PID 11643, PPID 1796 y status: 256
+Soy hijo 2, con PID 11647, y PPID  11643
+Soy PAPI 2, con PID 11643, PPID 1796 y status: 512
+Soy hijo 3, con PID 11648, y PPID  11643
+Soy PAPI 3, con PID 11643, PPID 1796 y status: 768
+
+[1]+  Hecho                   ./finals
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ kate changemem.c
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc changemem.c -o changemem
+changemem.c: In function ‘main’:
+changemem.c:11:15: error: expected ‘;’ before string constant
+   11 |         printf"fork failed\n");
+      |               ^~~~~~~~~~~~~~~
+      |               ;
+changemem.c:11:30: error: expected statement before ‘)’ token
+   11 |         printf"fork failed\n");
+      |                              ^
+changemem.c:15:13: warning: implicit declaration of function ‘prinf’; did you mean ‘printf’? [-Wimplicit-function-declaration]
+   15 |             prinf("Could not execute: ls\n");
+      |             ^~~~~
+      |             printf
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc changemem.c -o changemem
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./changemem
+Could not execute: ls
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc changemem.c -o changemem
+changemem.c: In function ‘main’:
+changemem.c:14:13: warning: implicit declaration of function ‘execpv’; did you mean ‘execvp’? [-Wimplicit-function-declaration]
+   14 |         if (execpv("bin/ls", "ls", "-1", NULL) < 0) {
+      |             ^~~~~~
+      |             execvp
+/usr/bin/ld: /tmp/cceWN2Ed.o: en la función `main':
+changemem.c:(.text+0xa1): undefined reference to `execpv'
+collect2: error: ld returned 1 exit status
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc changemem.c -o changemem
+changemem.c: In function ‘main’:
+changemem.c:14:30: warning: passing argument 2 of ‘execvp’ from incompatible pointer type [-Wincompatible-pointer-types]
+   14 |         if (execvp("bin/ls", "ls", "-1", NULL) < 0) {
+      |                              ^~~~
+      |                              |
+      |                              char *
+In file included from changemem.c:5:
+/usr/include/unistd.h:599:52: note: expected ‘char * const*’ but argument is of type ‘char *’
+  599 | extern int execvp (const char *__file, char *const __argv[])
+      |                                        ~~~~~~~~~~~~^~~~~~~~
+changemem.c:14:13: error: too many arguments to function ‘execvp’
+   14 |         if (execvp("bin/ls", "ls", "-1", NULL) < 0) {
+      |             ^~~~~~
+/usr/include/unistd.h:599:12: note: declared here
+  599 | extern int execvp (const char *__file, char *const __argv[])
+      |            ^~~~~~
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc changemem.c -o changemem
+changemem.c: In function ‘main’:
+changemem.c:14:30: warning: passing argument 2 of ‘execvp’ from incompatible pointer type [-Wincompatible-pointer-types]
+   14 |         if (execvp("bin/ls", "ls", "-1", NULL) < 0) {
+      |                              ^~~~
+      |                              |
+      |                              char *
+In file included from changemem.c:5:
+/usr/include/unistd.h:599:52: note: expected ‘char * const*’ but argument is of type ‘char *’
+  599 | extern int execvp (const char *__file, char *const __argv[])
+      |                                        ~~~~~~~~~~~~^~~~~~~~
+changemem.c:14:13: error: too many arguments to function ‘execvp’
+   14 |         if (execvp("bin/ls", "ls", "-1", NULL) < 0) {
+      |             ^~~~~~
+/usr/include/unistd.h:599:12: note: declared here
+  599 | extern int execvp (const char *__file, char *const __argv[])
+      |            ^~~~~~
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc changemem.c -o changemem
+changemem.c: In function ‘main’:
+changemem.c:15:20: warning: passing argument 1 of ‘execvp’ from incompatible pointer type [-Wincompatible-pointer-types]
+   15 |         if (execvp(file, argumentos) < 0) {
+      |                    ^~~~
+      |                    |
+      |                    char **
+In file included from changemem.c:5:
+/usr/include/unistd.h:599:32: note: expected ‘const char *’ but argument is of type ‘char **’
+  599 | extern int execvp (const char *__file, char *const __argv[])
+      |                    ~~~~~~~~~~~~^~~~~~
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc changemem.c -o changemem
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./changemem
+Could not execute: ls
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc changemem.c -o changemem
+changemem.c: In function ‘main’:
+changemem.c:14:13: warning: implicit declaration of function ‘execpv’; did you mean ‘execvp’? [-Wimplicit-function-declaration]
+   14 |         if (execpv("bin/ls", argumentos) < 0) {
+      |             ^~~~~~
+      |             execvp
+/usr/bin/ld: /tmp/ccLCqeRj.o: en la función `main':
+changemem.c:(.text+0x8f): undefined reference to `execpv'
+collect2: error: ld returned 1 exit status
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ gcc changemem.c -o changemem
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ ./changemem
+Could not execute: ls
+fso@fso-virtualbox:~/Escritorio/FSO/prct4$ 
